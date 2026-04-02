@@ -4,13 +4,15 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { createClient } from "@/lib/supabase/client";
 import type { Report } from "@/lib/types";
 
-const supabase = createClient();
+function getSupabase() {
+  return createClient();
+}
 
 export function useReports(status?: string) {
   return useQuery<Report[]>({
     queryKey: ["reports", status],
     queryFn: async () => {
-      let query = supabase
+      let query = getSupabase()
         .from("reports")
         .select("*")
         .order("priority_score", { ascending: false });
@@ -30,7 +32,7 @@ export function useReport(id: string) {
   return useQuery<Report>({
     queryKey: ["report", id],
     queryFn: async () => {
-      const { data, error } = await supabase
+      const { data, error } = await getSupabase()
         .from("reports")
         .select("*")
         .eq("id", id)
@@ -79,7 +81,7 @@ export function useUpdateReportStatus() {
         updateData.resolved_at = new Date().toISOString();
       }
 
-      const { data, error } = await supabase
+      const { data, error } = await getSupabase()
         .from("reports")
         .update(updateData)
         .eq("id", id)
@@ -100,7 +102,7 @@ export function useUpvoteReport() {
 
   return useMutation({
     mutationFn: async (id: string) => {
-      const { data, error } = await supabase.rpc("increment_upvotes", {
+      const { data, error } = await getSupabase().rpc("increment_upvotes", {
         report_id: id,
       });
       if (error) throw error;
@@ -116,11 +118,19 @@ export function useReportStats() {
   return useQuery({
     queryKey: ["report-stats"],
     queryFn: async () => {
-      const { data: all } = await supabase
+      const { data: all } = await getSupabase()
         .from("reports")
         .select("id, status, severity_score, created_at, resolved_at");
 
-      const reports = all || [];
+      interface ReportRow {
+        id: string;
+        status: string;
+        severity_score: number | null;
+        created_at: string;
+        resolved_at: string | null;
+      }
+
+      const reports = (all as ReportRow[]) || [];
       const total = reports.length;
       const pending = reports.filter((r) => r.status === "pending").length;
       const inProgress = reports.filter(
