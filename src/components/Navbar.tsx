@@ -23,8 +23,8 @@ export function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#3B82F6] to-[#2563EB] flex items-center justify-center glow-primary transition-all duration-300 group-hover:scale-110">
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#4A9FF5] to-[#3585DB] flex items-center justify-center shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:shadow-md">
               <svg
                 width="18"
                 height="18"
@@ -41,10 +41,10 @@ export function Navbar() {
               </svg>
             </div>
             <span
-              className="text-xl font-bold tracking-tight"
+              className="text-xl font-bold tracking-tight text-[#1A2332]"
               style={{ fontFamily: "Space Grotesk, sans-serif" }}
             >
-              Road<span className="text-[#3B82F6]">Sense</span>
+              Road<span className="text-[#4A9FF5]">Sense</span>
             </span>
           </Link>
 
@@ -55,10 +55,10 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200",
+                  "px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200",
                   pathname === link.href
-                    ? "bg-[#3B82F6]/15 text-[#3B82F6]"
-                    : "text-[#94A3B8] hover:text-white hover:bg-white/5"
+                    ? "bg-[#4A9FF5]/10 text-[#4A9FF5]"
+                    : "text-[#5A6B82] hover:text-[#1A2332] hover:bg-[#4A9FF5]/5"
                 )}
               >
                 {link.label}
@@ -68,7 +68,7 @@ export function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-white/5 transition-colors"
+            className="md:hidden p-2 rounded-xl hover:bg-[#4A9FF5]/5 transition-colors text-[#5A6B82]"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -102,10 +102,10 @@ export function Navbar() {
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
                 className={cn(
-                  "block px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200",
+                  "block px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200",
                   pathname === link.href
-                    ? "bg-[#3B82F6]/15 text-[#3B82F6]"
-                    : "text-[#94A3B8] hover:text-white hover:bg-white/5"
+                    ? "bg-[#4A9FF5]/10 text-[#4A9FF5]"
+                    : "text-[#5A6B82] hover:text-[#1A2332] hover:bg-[#4A9FF5]/5"
                 )}
               >
                 {link.label}

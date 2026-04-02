@@ -12,69 +12,40 @@ const stats = [
 
 const features = [
   {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="3" />
-        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
-      </svg>
-    ),
-    title: "AI Vision Analysis",
+    icon: "🔍",
+    title: "Smart Reporting",
     description:
-      "Gemini AI instantly analyzes road damage photos, classifying severity and recommending priority levels.",
+      "AI-powered issue detection with precise location tracking",
   },
   {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-        <circle cx="12" cy="10" r="3" />
-      </svg>
-    ),
-    title: "Real-Time Mapping",
+    icon: "🗺️",
+    title: "Live Road Map",
     description:
-      "Interactive heatmaps show road health across your city with live updates and smart clustering.",
+      "Interactive heatmaps show road health across your city in real time",
   },
   {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 20V10" />
-        <path d="M18 20V4" />
-        <path d="M6 20v-4" />
-      </svg>
-    ),
+    icon: "📊",
     title: "Priority Scoring",
     description:
-      "Smart formula scores every report by severity, traffic volume, and age to optimize repair schedules.",
+      "Smart formula scores every report by severity, traffic, and age",
   },
   {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A855F7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-      </svg>
-    ),
+    icon: "💬",
     title: "Multilingual Chatbot",
     description:
-      "Report issues in Hindi, English, or any language. Our AI chatbot understands and acts on your words.",
+      "Report issues in Hindi, English, or any language. Our AI understands all",
   },
   {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#EF4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-      </svg>
-    ),
+    icon: "📡",
     title: "Ghost Sensing",
     description:
-      "Passive accelerometer data from your phone detects road bumps automatically — no manual reporting needed.",
+      "Passive accelerometer data detects road bumps automatically — no manual input",
   },
   {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="8" r="7" />
-        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
-      </svg>
-    ),
-    title: "Citizen Rewards",
+    icon: "🏆",
+    title: "Earn Rewards",
     description:
-      "Earn points for every verified report. Redeem for transit credits, local vouchers, and civic badges.",
+      "Get recognized for your civic contributions with tokens and badges",
   },
 ];
 
@@ -82,111 +53,181 @@ const container = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.1 },
+    transition: { staggerChildren: 0.08 },
   },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.45 } },
 };
 
 export function LandingHero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Background effects */}
-      <div className="absolute inset-0 bg-grid" />
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#3B82F6]/10 rounded-full blur-[120px]" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#F59E0B]/8 rounded-full blur-[100px]" />
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-16">
+      {/* Floating shapes */}
+      <div className="floating-shape w-5 h-5 top-[20%] right-[15%] animate-float" style={{ animationDelay: "0s" }} />
+      <div className="floating-shape w-3 h-3 top-[35%] right-[25%] animate-float" style={{ animationDelay: "1s" }} />
+      <div className="floating-shape w-4 h-4 top-[50%] right-[10%] animate-float" style={{ animationDelay: "2s" }} />
+      <div className="floating-shape w-6 h-6 top-[15%] right-[35%] animate-float" style={{ animationDelay: "0.5s" }} />
+      <div className="floating-shape w-3 h-3 top-[60%] right-[30%] animate-float" style={{ animationDelay: "1.5s" }} />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center"
-        >
-          {/* Badge */}
+      {/* Subtle gradient orbs */}
+      <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-[#4A9FF5]/5 rounded-full blur-[120px]" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#87CEEB]/8 rounded-full blur-[100px]" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 w-full">
+        <div className="flex flex-col lg:flex-row items-start lg:items-center gap-12 lg:gap-20">
+          {/* Left side — Hero Text */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-medium text-[#3B82F6] mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="flex-1 max-w-2xl"
           >
-            <span className="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse" />
-            AI-Powered Civic Intelligence Platform
-          </motion.div>
-
-          {/* Heading */}
-          <h1
-            className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-6"
-            style={{ fontFamily: "Space Grotesk, sans-serif" }}
-          >
-            Smarter Roads.
-            <br />
-            <span className="gradient-text">Safer Cities.</span>
-          </h1>
-
-          <p className="max-w-2xl mx-auto text-lg sm:text-xl text-[#94A3B8] mb-10 leading-relaxed">
-            Report road hazards with a photo. Our AI analyzes severity, maps
-            danger zones, and helps municipalities fix what matters most — in
-            real time.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
-            <Link
-              href="/report"
-              className="group relative px-8 py-4 rounded-xl bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-semibold text-base transition-all duration-300 hover:scale-105 glow-primary"
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.15 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#4A9FF5]/8 border border-[#4A9FF5]/12 text-xs font-medium text-[#4A9FF5] mb-6"
             >
-              <span className="relative z-10 flex items-center gap-2">
-                Report an Issue
+              <span className="w-1.5 h-1.5 rounded-full bg-[#34C77B] animate-pulse" />
+              AI-Powered Civic Intelligence
+            </motion.div>
+
+            {/* Main heading */}
+            <h1
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-[#1A2332] mb-5"
+              style={{ fontFamily: "Space Grotesk, sans-serif" }}
+            >
+              Make Your City
+              <br />
+              <span className="gradient-text">Better Together</span>
+            </h1>
+
+            <p className="text-base sm:text-lg text-[#5A6B82] mb-8 leading-relaxed max-w-lg">
+              Join thousands of citizens using AI-powered technology to create
+              positive change in their communities.
+            </p>
+
+            {/* CTA */}
+            <div className="flex flex-col sm:flex-row items-start gap-3 mb-12">
+              <Link
+                href="/report"
+                className="btn-primary text-sm flex items-center gap-2"
+              >
+                Start Reporting
                 <svg
-                  width="18"
-                  height="18"
+                  width="16"
+                  height="16"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="2"
-                  className="transition-transform group-hover:translate-x-1"
+                  strokeWidth="2.5"
+                  className="transition-transform group-hover:translate-x-0.5"
                 >
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
-              </span>
-            </Link>
-            <Link
-              href="/map"
-              className="px-8 py-4 rounded-xl border border-[rgba(59,130,246,0.2)] text-[#94A3B8] font-semibold text-base transition-all duration-300 hover:bg-white/5 hover:text-white hover:border-[rgba(59,130,246,0.4)]"
-            >
-              View Road Map
-            </Link>
-          </div>
-        </motion.div>
+              </Link>
+              <Link href="/map" className="btn-outline text-sm">
+                View Road Map
+              </Link>
+            </div>
 
-        {/* Stats Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          className="glass rounded-2xl p-6 sm:p-8"
-        >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-2xl mb-1">{stat.icon}</div>
-                <div
-                  className="text-2xl sm:text-3xl font-bold text-white"
-                  style={{ fontFamily: "Space Grotesk, sans-serif" }}
+            {/* Feature bullets */}
+            <div className="space-y-4">
+              {[
+                {
+                  icon: "📍",
+                  title: "Smart Reporting",
+                  desc: "AI-powered issue detection with precise location tracking",
+                },
+                {
+                  icon: "👥",
+                  title: "Community Impact",
+                  desc: "Connect with 10,000+ active citizens making real change",
+                },
+                {
+                  icon: "🏆",
+                  title: "Earn Rewards",
+                  desc: "Get recognized for your civic contributions with tokens",
+                },
+              ].map((f) => (
+                <motion.div
+                  key={f.title}
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="flex items-start gap-3"
                 >
-                  {stat.value}
-                </div>
-                <div className="text-xs text-[#64748B] mt-1 uppercase tracking-wider">
-                  {stat.label}
-                </div>
+                  <span className="text-lg mt-0.5">{f.icon}</span>
+                  <div>
+                    <div className="text-sm font-semibold text-[#1A2332]">
+                      {f.title}
+                    </div>
+                    <div className="text-sm text-[#5A6B82]">{f.desc}</div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Trust bar */}
+            <div className="flex items-center gap-5 mt-8 text-xs text-[#8A9AB5]">
+              <span className="flex items-center gap-1.5">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+                Secure & Private
+              </span>
+              <span className="flex items-center gap-1.5">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                4.9/5 Rating
+              </span>
+            </div>
+          </motion.div>
+
+          {/* Right side — Stats Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="w-full lg:w-auto lg:min-w-[360px]"
+          >
+            <div className="card p-6 sm:p-8 rounded-2xl">
+              <h3
+                className="text-xl font-bold text-[#1A2332] mb-1 text-center"
+                style={{ fontFamily: "Space Grotesk, sans-serif" }}
+              >
+                Platform Stats
+              </h3>
+              <p className="text-sm text-[#8A9AB5] text-center mb-6">
+                Real-time civic impact metrics
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                {stats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="text-center p-4 rounded-xl bg-[#F5F9FF] border border-[#E8F2FF]"
+                  >
+                    <div className="text-xl mb-1">{stat.icon}</div>
+                    <div
+                      className="text-2xl font-bold text-[#1A2332]"
+                      style={{ fontFamily: "Space Grotesk, sans-serif" }}
+                    >
+                      {stat.value}
+                    </div>
+                    <div className="text-[11px] text-[#8A9AB5] mt-0.5 uppercase tracking-wide">
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </motion.div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -194,25 +235,25 @@ export function LandingHero() {
 
 export function LandingFeatures() {
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-20 sm:py-28 overflow-hidden">
       <div className="absolute inset-0 bg-dots" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.45 }}
+          className="text-center mb-14"
         >
           <h2
-            className="text-3xl sm:text-4xl font-bold text-white mb-4"
+            className="text-3xl sm:text-4xl font-bold text-[#1A2332] mb-3"
             style={{ fontFamily: "Space Grotesk, sans-serif" }}
           >
-            Enterprise-Grade <span className="gradient-text">Features</span>
+            Built for <span className="gradient-text">Impact</span>
           </h2>
-          <p className="text-[#94A3B8] max-w-2xl mx-auto text-lg">
-            Built for scale. Designed for impact. Every feature works together
-            to create the most comprehensive road safety platform.
+          <p className="text-[#5A6B82] max-w-xl mx-auto text-base">
+            Every feature works together to create the most comprehensive
+            civic intelligence platform.
           </p>
         </motion.div>
 
@@ -221,24 +262,24 @@ export function LandingFeatures() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
         >
           {features.map((feature) => (
             <motion.div
               key={feature.title}
               variants={item}
-              className="group glass rounded-2xl p-6 transition-all duration-300 hover:bg-[rgba(30,41,59,0.8)] hover:border-[rgba(59,130,246,0.3)] cursor-default"
+              className="card p-6 rounded-2xl cursor-default group"
             >
-              <div className="w-12 h-12 rounded-xl bg-[rgba(59,130,246,0.1)] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-11 h-11 rounded-xl bg-[#F5F9FF] border border-[#E8F2FF] flex items-center justify-center mb-4 text-xl group-hover:scale-110 transition-transform duration-300">
                 {feature.icon}
               </div>
               <h3
-                className="text-lg font-semibold text-white mb-2"
+                className="text-base font-semibold text-[#1A2332] mb-1.5"
                 style={{ fontFamily: "Space Grotesk, sans-serif" }}
               >
                 {feature.title}
               </h3>
-              <p className="text-sm text-[#94A3B8] leading-relaxed">
+              <p className="text-sm text-[#5A6B82] leading-relaxed">
                 {feature.description}
               </p>
             </motion.div>
@@ -251,38 +292,38 @@ export function LandingFeatures() {
 
 export function LandingCTA() {
   return (
-    <section className="relative py-24">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section className="relative py-20 sm:py-28">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0, scale: 0.97 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="glass rounded-3xl p-10 sm:p-16 relative overflow-hidden"
+          transition={{ duration: 0.45 }}
+          className="card rounded-3xl p-10 sm:p-16 relative overflow-hidden"
         >
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-1 bg-gradient-to-r from-transparent via-[#3B82F6] to-transparent" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-1 bg-gradient-to-r from-transparent via-[#4A9FF5] to-transparent rounded-full" />
           <h2
-            className="text-3xl sm:text-4xl font-bold text-white mb-4"
+            className="text-2xl sm:text-3xl font-bold text-[#1A2332] mb-3"
             style={{ fontFamily: "Space Grotesk, sans-serif" }}
           >
             Ready to Make Your
             <br />
             <span className="gradient-text-accent">Roads Safer?</span>
           </h2>
-          <p className="text-[#94A3B8] max-w-xl mx-auto mb-8 text-lg">
-            Join thousands of citizens who are already using RoadSense to
-            improve their communities. It takes 30 seconds to report an issue.
+          <p className="text-[#5A6B82] max-w-md mx-auto mb-8 text-base">
+            Join thousands of citizens already using RoadSense. It takes 30
+            seconds to report an issue.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/report"
-              className="px-8 py-4 rounded-xl bg-gradient-to-r from-[#F59E0B] to-[#D97706] text-black font-bold text-base transition-all duration-300 hover:scale-105 glow-accent"
+              className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#FF8C42] to-[#F5A623] text-white font-semibold text-sm transition-all duration-200 hover:scale-[1.02] glow-accent"
             >
               Start Reporting →
             </Link>
             <Link
               href="/admin"
-              className="px-8 py-4 rounded-xl border border-[rgba(245,158,11,0.3)] text-[#F59E0B] font-semibold text-base transition-all duration-300 hover:bg-[rgba(245,158,11,0.1)]"
+              className="btn-outline text-sm"
             >
               Municipal Dashboard
             </Link>

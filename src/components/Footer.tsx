@@ -2,13 +2,13 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="border-t border-[rgba(59,130,246,0.1)] bg-[rgba(10,14,26,0.95)]">
+    <footer className="border-t border-[#E8F2FF] bg-white/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#3B82F6] to-[#2563EB] flex items-center justify-center">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#4A9FF5] to-[#3585DB] flex items-center justify-center">
                 <svg
                   width="16"
                   height="16"
@@ -25,13 +25,13 @@ export function Footer() {
                 </svg>
               </div>
               <span
-                className="text-lg font-bold"
+                className="text-lg font-bold text-[#1A2332]"
                 style={{ fontFamily: "Space Grotesk, sans-serif" }}
               >
-                Road<span className="text-[#3B82F6]">Sense</span>
+                Road<span className="text-[#4A9FF5]">Sense</span>
               </span>
             </div>
-            <p className="text-[#64748B] text-sm max-w-md leading-relaxed">
+            <p className="text-[#8A9AB5] text-sm max-w-md leading-relaxed">
               AI-powered civic intelligence platform that transforms road hazard
               reporting into actionable data for safer, smarter cities.
             </p>
@@ -39,19 +39,20 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">
+            <h4 className="text-sm font-semibold text-[#1A2332] mb-4 uppercase tracking-wider">
               Platform
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {[
                 { href: "/report", label: "Report Issue" },
                 { href: "/map", label: "Road Map" },
+                { href: "/ghost", label: "Ghost Sensing" },
                 { href: "/rewards", label: "Rewards" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[#94A3B8] hover:text-[#3B82F6] transition-colors"
+                    className="text-sm text-[#5A6B82] hover:text-[#4A9FF5] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -62,14 +63,14 @@ export function Footer() {
 
           {/* Info */}
           <div>
-            <h4 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">
+            <h4 className="text-sm font-semibold text-[#1A2332] mb-4 uppercase tracking-wider">
               Resources
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {["API Documentation", "Open Data", "Privacy Policy"].map(
                 (label) => (
                   <li key={label}>
-                    <span className="text-sm text-[#94A3B8] hover:text-[#3B82F6] transition-colors cursor-pointer">
+                    <span className="text-sm text-[#5A6B82] hover:text-[#4A9FF5] transition-colors cursor-pointer">
                       {label}
                     </span>
                   </li>
@@ -79,13 +80,13 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-[rgba(59,130,246,0.08)] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-[#64748B]">
+        <div className="mt-10 pt-6 border-t border-[#E8F2FF] flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-[#8A9AB5]">
             © 2026 RoadSense. Civic Intelligence for Everyone.
           </p>
-          <div className="flex items-center gap-4">
-            <span className="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse" />
-            <span className="text-xs text-[#64748B]">
+          <div className="flex items-center gap-3">
+            <span className="w-2 h-2 rounded-full bg-[#34C77B] animate-pulse" />
+            <span className="text-xs text-[#8A9AB5]">
               All systems online
             </span>
           </div>
